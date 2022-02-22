@@ -35,5 +35,7 @@ class TypewiseTest(unittest.TestCase):
         self.assertTrue(typewise_alert.check_and_alert("TO_CONTROLLER", {'coolingType' : 'MED_ACTIVE_COOLING'}, 60) == f'{0xfeed}, TOO_HIGH')
         self.assertTrue(typewise_alert.check_and_alert("TO_CONTROLLER", {'coolingType' : 'HI_ACTIVE_COOLING'}, -1) == f'{0xfeed}, TOO_LOW')
         self.assertTrue(typewise_alert.check_and_alert("TO_CONTROLLER", {'coolingType' : 'PASSIVE_COOLING'}, 0) == '')
+        self.assertTrue(typewise_alert.check_and_alert("TO_MESSAGE", {'coolingType' : 'PASSIVE_COOLING'}, 0) == 'no such alert target available')
+
 if __name__ == '__main__':
   unittest.main()
