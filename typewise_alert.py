@@ -37,7 +37,7 @@ def classify_temperature_breach(coolingType, temperatureInC):
 
 def send_to_controller(breachType):
   controllerMsg = ''
-  if alertMessages[breachType] is not '':
+  if alertMessages[breachType] != '':
     header = 0xfeed
     controllerMsg = f'{header}, {breachType}'
     print(controllerMsg)
@@ -45,7 +45,7 @@ def send_to_controller(breachType):
 
 def send_to_email(breachType):
   emailMsg = ''
-  if alertMessages[breachType] is not '':
+  if alertMessages[breachType] != '':
     recepientsList = ['a.b@c.com','c.a@b.com']
     recepients = ', '.join(recepientsList)
     emailMsg = f'To: {recepients}\nHi, the temperature is '+ alertMessages[breachType]
